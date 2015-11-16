@@ -1,3 +1,7 @@
 const hellovilag = 'hello vilag'
 
-console.log(hellovilag);
+var yolo = () => {
+  console.log('yolo')
+}
+
+yolo();
