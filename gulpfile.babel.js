@@ -4,7 +4,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const jasmine = require('gulp-jasmine');
 
-gulp.task('default', function () {
+gulp.task('default', () => {
 	return gulp.src('src/**/*.js')
 		.pipe(sourcemaps.init())
 		.pipe(babel({
@@ -15,7 +15,7 @@ gulp.task('default', function () {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('buildtests', function() {
+gulp.task('buildtests', () => {
 	return gulp.src('spec/*.spec.js')
 		.pipe(babel({
 			presets: ['es2015']
@@ -23,7 +23,7 @@ gulp.task('buildtests', function() {
 		.pipe(gulp.dest('spec/temp'))
 });
 
-gulp.task('test', ['buildtests'], function() {
+gulp.task('test', ['buildtests'], () => {
 	return gulp.src('spec/temp/*.spec.js')
 		.pipe(jasmine())
 });
