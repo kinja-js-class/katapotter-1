@@ -1,4 +1,4 @@
-import {getprice} from './katapotter';
+import {getprice} from '../src/katapotter';
 
 describe('Katapotter price', () => {
 
