@@ -1,6 +1,7 @@
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const jasmine = require('gulp-jasmine')
+const watch = require('gulp-watch')
 const del = require('del')
 
 gulp.task('default', ['clean-build', 'test'])
@@ -18,4 +19,10 @@ gulp.task('test', ['build'], _ => {
 
 gulp.task('clean-build', (callback) => {
   del(['dist/*'], callback)
+})
+
+gulp.task('ci', _ => {
+  watch(['src/**/*.js', 'spec/*.spec.js'], (events, done) => {
+    gulp.start('test')
+  })
 })
