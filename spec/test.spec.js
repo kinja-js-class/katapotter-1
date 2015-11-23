@@ -18,4 +18,11 @@ describe('Katapotter price', () => {
 		expect(getprice([3, 3, 3])).toBe(24);
 	});
 
+	it('should be 15.2 for 2 different items', () => {
+		expect(getprice([2, 3])).toBe(15.2);
+	});
+
+	it('should be 21.6 for 3 different items', () => {
+		expect(getprice([2, 3, 4])).toBe(21.6);
+	});
 });
