@@ -33,4 +33,16 @@ describe('Katapotter price', () => {
 	it('should be 3 * 8 * 0.9 + 8 for 2 different with one equal', () => {
 		expect(getprice([2, 2, 3, 4])).toBe(3 * 8 * 0.9 + 8);
 	});
+
+	it('should be 4 * 8 * 0.8 for 4 different', () => {
+		expect(getprice([1, 2, 3, 4])).toBe(4 * 8 * 0.8);
+	});
+
+	it('should be 5 * 8 * 0.75 for 5 different', () => {
+		expect(getprice([1, 2, 3, 4, 5])).toBe(5 * 8 * 0.75);
+	});
+	
+	it('should be 51.2 for the test case in katapotter desc', () => {
+		expect(getprice([1, 1, 2, 2, 3, 3, 4, 5])).toBe(51.2);
+	});
 });
