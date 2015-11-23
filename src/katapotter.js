@@ -9,5 +9,24 @@ export function getprice(books) {
 		return BOOKPRICE * books.length;
 	}
 
-	return BOOKPRICE * books.length * DISCOUNTS[uniqueBooksNum - 1];
+	let permutations = [[]];
+	for (let book of books) {
+		let inCart = false;
+		for (let p of permutations) {
+			if (!_.contains(p, book) && p.length < 5) {
+				inCart = true;
+				p.push(book);
+				break;
+			}
+		}
+		if (!inCart) {
+			permutations.push([book]);
+		}
+	}
+
+	let price = permutations.reduce((price, p) => {
+		return price + p.length * BOOKPRICE * DISCOUNTS[p.length - 1];
+	}, 0);
+
+	return price;
 }
